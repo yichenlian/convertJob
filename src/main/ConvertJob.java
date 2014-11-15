@@ -43,6 +43,10 @@ public class ConvertJob {
 	 */
 	private static final String SWFTOOLS_PATH = ConfigManager.instance().getProperty("convert", "swftools_path");
 	/**
+	 * 字体路径
+	 */
+	private static final String FONT_PATH = ConfigManager.instance().getProperty("convert", "font_path");
+	/**
 	 * 系统类型：windows或者linux
 	 */
 	private static final String SYSTEM_KIND = ConfigManager.instance().getProperty("convert", "system_kind");
@@ -265,8 +269,7 @@ public class ConvertJob {
 		Document doc = new Document();
 		FileOutputStream out = new FileOutputStream(fileOut);
 		PdfWriter.getInstance(doc, out);
-		BaseFont bfHei = BaseFont.createFont(
-				"C:/Windows/Fonts/simhei.ttf", BaseFont.IDENTITY_H,
+		BaseFont bfHei = BaseFont.createFont(FONT_PATH, BaseFont.IDENTITY_H,
 				BaseFont.NOT_EMBEDDED);
 		Font font = new Font(bfHei, 12);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
